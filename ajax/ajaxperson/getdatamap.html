@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<button>click!!!</button>
+<div></div><br>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+$("button").on("click", function(){
+	
+	$.getJSON("datamap.jsp", function(data){
+		$("div").append(data.NAME+"<br><br>");
+		
+		for(let name in data){
+			$("div").append('${name} : ${data[name]}<br>');
+		}
+		$("div").append("<br>");
+		
+		$.each(data, function(key, value){
+			$("div").append('${key} : ${value} <br>');
+		})
+	})
+	})
+</script>
+
+</body>
+</html>
